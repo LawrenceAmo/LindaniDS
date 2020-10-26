@@ -1,0 +1,143 @@
+﻿@model lindaniDS.Models.Learners
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row mx-5 mb-3 mt-5 animate__animated animate__fadeInDown">
+    <div class="col-md-4">
+        @Html.ActionLink("Back ", "Index", "Home")
+    </div>
+    <div class="col-md-5 h4">
+        Book For Learners
+    </div>
+    <div class="col-md-2 h4">
+       <a href="~/Home/Contact" class=" btn btn-outline-info btn-info rounded btn-sm ">Have quiry? Contact US</a>
+    </div>
+</div>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row mx-5 mt-5 pl-5">
+        <div class="col-md-6 ml-5 pl-5 animate__animated animate__fadeInLeft">
+
+            @*<div class="md-form md-outline">
+            @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control  form-control-sm validate" })
+                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="md-form md-outline">
+            @Html.LabelFor(model => model.PackageID, "PackageID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PackageID", null, htmlAttributes: new { @class = "form-control  form-control-sm validate" })
+                @Html.ValidationMessageFor(model => model.PackageID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+            <div class="h4 text-black-50">
+                Your Curent Address
+            </div> <br />
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.Province, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
+                <label for="Province" data-error="wrong" data-success="right">Province</label>
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                <label for="City" data-error="wrong" data-success="right">City</label>
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.Surbub, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Surbub, "", new { @class = "text-danger" })
+                <label for="Surbub" data-error="wrong" data-success="right">Surbub</label>
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.Street, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+                <label for="Street" data-error="wrong" data-success="right">Street</label>
+            </div>
+
+            <div class="md-form md-outline">
+              
+                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                <label for="ZipCode" data-error="wrong" data-success="right">Zip Code</label>
+
+            </div>
+
+        </div>
+        <div class="col-md-5 animate__animated animate__fadeInRight">
+
+            <div class="h4 text-black-50">
+                Your Info
+            </div> <br />
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                <label for="Phone" data-error="wrong" data-success="right">Phone</label>
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.IDNum, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.IDNum, "", new { @class = "text-danger" })
+                <label for="IDNum" data-error="wrong" data-success="right">Id Number</label>
+
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                <label for="Location" data-error="wrong" data-success="right">Location</label>
+
+            </div>
+
+            <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+                <input placeholder="Select date" type="date" name="BookingDate" id="BookingDate" class="form-control">
+                @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
+                <label for="BookingDate" data-error="wrong" data-success="right">Booking Date</label>
+
+            </div>
+
+            <div class="md-form md-outline pl-4">
+                <!-- Material unchecked -->
+                <div class="custom-control custom-radio form-inline">
+                    <input type="radio" class="custom-control-input" value="2" id="a" name="Session" checked>
+                    <label class="custom-control-label" for="a">Session A </label>
+                </div>
+                <div class="custom-control custom-radio form-inline">
+                    <input type="radio" class="custom-control-input" value="2" id="b" name="Session">
+                    <label class="custom-control-label" for="b">Session B </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12 text-center animate__animated animate__fadeInUp">
+            <input type="submit" value="Book Now" class="btn btn-primary rounded animate__animated animate__heartBeat animate__delay-4s animate__repeat-2" />
+        </div>
+    </div>
+
+}
+

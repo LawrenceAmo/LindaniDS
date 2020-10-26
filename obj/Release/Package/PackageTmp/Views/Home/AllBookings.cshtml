@@ -1,0 +1,115 @@
+﻿@model lindaniDS.Models.BookingPackages
+
+@{
+    ViewBag.Title = "AllBookings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mx-5 mt-5">
+    <div class="col-md-6">
+        <!-- Card -->
+        <div class="card card-cascade wider reverse">
+
+            <!-- Card image -->
+            <div class="view view-cascade overlay">
+                <img class="card-img-top"height="400" src="https://i.pinimg.com/originals/bf/7e/ab/bf7eab6d97c8679ea195d27a7a6cb8f4.jpg"
+                     alt="Card image cap">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h4 class="card-title"><strong>Learners</strong></h4>
+                <!-- Subtitle -->
+                <h6 class="font-weight-bold indigo-text py-2">R 600.00 </h6>
+                <!-- Text -->
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
+                    voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
+                    laborum ut beatae ullam suscipit veniam.
+                </p>
+
+                <span class="font-weight-bold h5"> Code:</span>
+
+                <!-- Linkedin -->
+                <a class="px-2 fa-lg li-ic"><i class="fab fa-"></i>All</a> <br />
+
+                @Html.ActionLink("More info", "Create", "Learners", new { area = "" }, new { @class = "btn btn-info rounded-lg mr-5" })
+                @Html.ActionLink("Book Now", "Create", "Learners", new { area = "" }, new { @class = "btn btn-primary rounded-lg ml-5" })
+
+            </div>
+
+        </div>
+        <!-- Card -->
+        @*<div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+        </div>*@
+
+    </div>
+    <div class="col-md-6">
+        <!-- Card -->
+        <div class="card card-cascade wider reverse">
+
+            <!-- Card image -->
+            <div class="view view-cascade overlay">
+                <img class="card-img-top" height="400" src="https://zululandobserver.co.za/wp-content/uploads/sites/56/2020/05/driving-licence.jpg"
+                     alt="Card image cap">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h4 class="card-title"><strong>Driving Licence</strong></h4>
+                <!-- Subtitle -->
+                <h6 class="font-weight-bold indigo-text py-2">R 1800.00 - R 5300.00</h6>
+                <!-- Text -->
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
+                    voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
+                    laborum ut beatae ullam suscipit veniam.
+                </p>
+                <span class="font-weight-bold h5"> Code:</span>
+
+                <!-- Linkedin -->
+                <a class="px-2 fa-lg li-ic"><i class="fab fa-"></i>08</a>
+                <!-- Twitter -->
+                <a class="px-2 fa-lg tw-ic"><i class="fab fa-"></i>10</a>
+                <!-- Dribbble -->
+                <a class="px-2 fa-lg fb-ic"><i class="fab fa-"></i>14</a> <br />
+
+
+                @Html.ActionLink("More info", "Details", "Licences", new { area = "" }, new { @class = "btn btn-info rounded-lg mr-5" })
+                @Html.ActionLink("Book Now", "Create", "Licences", new { area = "" }, new { @class = "btn btn-primary rounded-lg ml-5" })
+              
+
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+</div>
+<hr class="mt-5"/>
+<div class="row mx-5 mt-5">
+    <div class="col-12">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue commodo tempor. Fusce in porttitor leo. Duis quis ante at felis maximus blandit. Donec pellentesque nisl eu rhoncus viverra. Curabitur leo urna, commodo vitae dolor ac, faucibus sagittis tellus. Ut varius efficitur elit ac sollicitudin. Suspendisse vitae porttitor enim.
+        <br /><br />
+        Pellentesque varius dapibus libero ac laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras vitae ullamcorper augue. Vivamus nec consectetur lacus, ut commodo est. Proin aliquam ligula velit, vitae sodales arcu scelerisque in. Proin non condimentum leo. Aliquam non placerat ligula, vitae suscipit dui. Praesent semper felis et erat molestie, eu fermentum nunc semper. Etiam feugiat commodo nisl ac sodales. Fusce posuere, massa sed maximus venenatis, quam mauris ultrices magna, at porta libero tellus sed sem. Cras malesuada tempus risus non convallis. Sed in sodales arcu. Ut metus orci, suscipit sit amet turpis dapibus, fermentum commodo elit.
+<br />
+        Pellentesque varius dapibus libero ac laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras vitae ullamcorper augue. Vivamus nec consectetur lacus, ut commodo est. Proin aliquam ligula velit, vitae sodales arcu scelerisque in. Proin non condimentum leo. Aliquam non placerat ligula, vitae suscipit dui. Praesent semper felis et erat molestie, eu fermentum nunc semper. Etiam feugiat commodo nisl ac sodales. Fusce posuere, massa sed maximus venenatis, quam mauris ultrices magna, at porta libero tellus sed sem. Cras malesuada tempus risus non convallis. Sed in sodales arcu. Ut metus orci, suscipit sit amet turpis dapibus, fermentum commodo elit.
+    </div>
+</div>

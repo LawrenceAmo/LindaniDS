@@ -1,0 +1,75 @@
+﻿@model lindaniDS.Models.VehicleHire
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="card" style="width: 18rem;">
+    <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.learntodrivedublin.ie%2FDriving_lessons_in_Tallaght.html&psig=AOvVaw3eOR5cp-cLbkG6tYUAEgfT&ust=1595963607417000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjCjviR7uoCFQAAAAAdAAAAABAI" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Html.DisplayNameFor(model => model.VehicleModel.vehicleName) @Html.DisplayFor(model => model.VehicleModel.vehicleName)</h5>
+        <p class="card-text">
+            @Html.DisplayNameFor(model => model.Email)
+
+            @Html.DisplayFor(model => model.Email)
+
+            @Html.DisplayNameFor(model => model.color)
+
+            @Html.DisplayFor(model => model.color)
+
+            @Html.DisplayNameFor(model => model.regNo)
+
+            @Html.DisplayFor(model => model.regNo)
+
+            @Html.DisplayNameFor(model => model.noPlate)
+
+            @Html.DisplayFor(model => model.noPlate)
+
+            @Html.DisplayNameFor(model => model.cost)
+
+            @Html.DisplayFor(model => model.cost)
+
+            @Html.DisplayNameFor(model => model.condition)
+
+            @Html.DisplayFor(model => model.condition)
+
+            @Html.DisplayNameFor(model => model.availability)
+
+            @Html.DisplayFor(model => model.availability)
+        </p>
+    </div>
+    <div class="card-footer ">
+        <small class="text-muted">            
+            @Html.ActionLink("Back to List", "Index")
+            <a href="#myModal" class="trigger-btn ml-5 btn btn-block btn-sm"  data-toggle="modal">Delete</a>
+        </small>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header flex-column">
+                <div class="icon-box">
+                    <i class="material-icons">&#xE5CD;</i>
+                </div>
+                <h4 class="modal-title w-100">Are you sure?</h4>
+                <button type="button" class="close mr-2 mt-1" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Do you really want to delete these records? This process cannot be undone.</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    // @Html.ActionLink("Back to List", "Index");
+                }
+            </div>
+        </div>
+    </div>
+</div>

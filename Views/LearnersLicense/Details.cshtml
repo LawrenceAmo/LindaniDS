@@ -1,0 +1,66 @@
+﻿@model lindaniDS.Models.Learners
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div  class="container">
+<h2 class="mt-5 pt-5">Details</h2>
+
+<div>
+    <h4>Learners</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LearnerDisc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LearnerDisc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Enroll Now", "LearnerPay", "Payments", new { id = Model.LearnerID }, new { @class = "btn btn-sm btn-primary rounded" }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+    <div class="p-5 m-5 border text-center text-danger h5">
+        @Model.LearnerID
+    </div>
+    </div>
+
+

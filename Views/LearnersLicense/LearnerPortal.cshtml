@@ -1,0 +1,87 @@
+﻿@model IEnumerable<lindaniDS.Models.Learners>
+
+@{
+    ViewBag.Title = "LearnerPortal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Enrol = ViewBag.enrol;
+}
+<style>
+    .side-bar{
+        height:80vh;       
+    }
+</style>
+<hr />
+
+<div class=" container-fluid  mt-4 pt-4">
+
+    <div class="row mx-0">
+        <div class="col-md-2 border-right h-100 ">
+            <div class="shadow p-2   rounded d-flex flex-column  side-bar">
+
+                <a href="#" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-user mr-2"></i> Profile</a>
+                <a href="#" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-user-plus mr-2"></i> Home</a>
+                <a href="#" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-user mr-2"></i> My Courses</a>
+                <a href="#" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-user mr-2"></i> Portal Settings</a>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <p class="h5 p-1 ml-4 font-weight-bold">Studen Portal</p> <br />
+            <div class="row-cols-3  d-flex ">
+
+            @foreach (var item in Enrol)
+            {
+
+            <div class="col mb-4 mx-3 d-flex align-items-stretch">
+
+                <div class="card shadow">
+                    <!--Card image-->
+                    <div class=" overlay pb-0 p-0">
+                        <img class="card-img-top mb-0 m-0" src="https://witbanknews.co.za/wp-content/uploads/sites/105/2018/02/driving-licence.jpg" alt="Card image cap">
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body d-flex flex-column justify-content-between pt-2 pb-1">
+
+                        <!--Title-->
+                        <h4 class="card-title  d-flex justify-content-between">
+                            <span> @item.Learners.Name</span> <span>
+                                @if (item.Learners.Code == 1)
+                                {<span> A </span>}
+
+                                @if (item.Learners.Code == 2)
+                                {<span> B </span>}
+
+                                @if (item.Learners.Code == 3)
+                                {<span> C </span>}
+
+                            </span>
+                        </h4>
+                        <!--Text-->
+                        <p class="card-text">
+                            @item.Learners.LearnerDisc)
+                        </p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <div class=" d-flex justify-content-between">
+                            <span class="my-auto h5 font-weight-bold">Enrolled</span>
+                            <span class="">@Html.ActionLink("start learning", "Index","Courses", new { id = item.Learners.LearnerID }, new { @class ="btn btn-light-blue text-white btn-md"})</span>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Card -->
+
+            </div>
+
+
+
+        }
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

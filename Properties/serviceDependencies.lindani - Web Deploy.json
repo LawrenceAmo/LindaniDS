@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/lindanidsdbserver/databases/lindaniDS_db",
+      "type": "mssql.azure",
+      "connectionId": "LindaniContext",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

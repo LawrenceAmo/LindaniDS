@@ -1,0 +1,159 @@
+﻿@model lindaniDS.Models.VehicleHire
+
+@{
+    ViewBag.Title = "ViewCar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+<div class="row mt-5 ml-5">
+    <div class="col-md-4">
+        @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-sm btn-info btn-outline-info rounded" })
+    </div>
+    <div class="col-md-6">
+        <h2>Hire  @Html.DisplayNameFor(model => model.VehicleModel.vehicleName) Now</h2>
+    </div>
+    <div class="col-md-2" onclick="hire()">
+        @Html.ActionLink("Hire Now", "Create", "Payments",new { id = Model.vehicleID }, new { @class = "btn btn-sm btn-primary rounded" })
+    </div>
+</div>
+<hr />
+
+<div class="row mx-5">
+    <div class="col-md-6">
+        <img class="card-img-top hoverable" src="~/Images/@ViewBag.Vehicle.Photo" width="400" height="450" alt="Card image cap">
+    </div>
+    <div class="col-md-6 border-left">
+        @* /////////////////////////////////////////////// *@
+
+        <table id="paginationSimpleNumbers" class="table" width="100%">
+            <tbody>
+
+                <tr>
+                    <td>
+                        Vehicle Name
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.VehicleModel.vehicleName)  @Html.DisplayFor(model => model.VehicleModel.vehicleMake)   @Html.DisplayFor(model => model.color)
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        Vehicle Color
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.color)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Body Type
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.VehicleModel.vehicleBodyType)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Model</td>
+                    <td> @Html.DisplayFor(model => model.VehicleModel.modelName)</td>
+
+                </tr>
+
+                @*  @Html.DisplayFor(model => model.regNo) @Html.DisplayFor(model => model.noPlate) *@
+                <tr>
+                    <td>Vehicle Condition</td>
+                    <td>
+
+                        @if (@Model.condition == true)
+                        {
+                            <span class="text-danger">
+                                Damaged</span>
+                        }
+                        else
+                        {
+                        <span class="text-success">
+                            Good Condition
+                        </span>
+                        }
+                                @*@Html.DisplayFor(model => model.condition) @Html.DisplayFor(model => model.availability)*@
+                        </td>
+
+                </tr>
+
+                <tr>
+                    <td>Is vehicle available</td>
+                    <td>
+
+                        @if (@Model.availability == false)
+                        {
+                            <span class="text-success"> Yes (Available) </span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">
+                                No (Not Available)</span>
+
+                        }
+                        </td>
+
+                </tr>
+                <tr>
+                    <td>Available At</td>
+                    <td>  Durban</td>
+
+                </tr>
+                <tr>
+                    <td>Cost p/d</td>
+                    <td> R @Html.DisplayFor(model => model.cost)</td>
+
+                </tr>
+                <tr>
+                    <td>Contact</td>
+                    <td> @Html.DisplayFor(model => model.Email)</td>
+
+                </tr>
+                @*<tr>
+            <td>Unity Butler</td>
+            <td> @Html.DisplayFor(model => model.PickDate)</td>
+
+        </tr>
+        <tr>
+            <td>Unity Butler</td>
+            <td> @Html.DisplayFor(model => model.DropDate)</td>*@
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+<div class="row ml-5">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+
+    </div>
+
+</div>
+
+<script>
+
+    function hire() {
+        setTimeout(function () {
+            window.confirm("You must create account first. Click OK to Login or Register");
+        }, 10);
+    }
+</script>

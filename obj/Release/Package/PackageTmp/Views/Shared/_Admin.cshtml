@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @* ///////////////////////////////////////////////////////// *@
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    @* ///////////////////////////////////////////////////// *@
+    <style>
+        body {
+            padding: 0px;
+        }
+
+
+        .modal-confirm {
+            color: #636363;
+            width: 400px;
+        }
+
+            .modal-confirm .modal-content {
+                padding: 20px;
+                border-radius: 5px;
+                border: none;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .modal-confirm .modal-header {
+                border-bottom: none;
+                position: relative;
+            }
+
+            .modal-confirm h4 {
+                text-align: center;
+                font-size: 26px;
+                margin: 30px 0 -10px;
+            }
+
+            .modal-confirm .close {
+                position: absolute;
+                top: -5px;
+                right: -2px;
+            }
+
+            .modal-confirm .modal-body {
+                color: #999;
+            }
+
+            .modal-confirm .modal-footer {
+                border: none;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 13px;
+                padding: 10px 15px 25px;
+            }
+
+                .modal-confirm .modal-footer a {
+                    color: #999;
+                }
+
+            .modal-confirm .icon-box {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+                border-radius: 50%;
+                z-index: 9;
+                text-align: center;
+                border: 3px solid #f15e5e;
+            }
+
+                .modal-confirm .icon-box i {
+                    color: #f15e5e;
+                    font-size: 46px;
+                    display: inline-block;
+                    margin-top: 13px;
+                }
+
+            .modal-confirm .btn, .modal-confirm .btn:active {
+                color: #fff;
+                border-radius: 4px;
+                background: #60c7c1;
+                text-decoration: none;
+                transition: all 0.4s;
+                line-height: normal;
+                min-width: 120px;
+                border: none;
+                min-height: 40px;
+                border-radius: 3px;
+                margin: 0 5px;
+            }
+
+            .modal-confirm .btn-secondary {
+                background: #c1c1c1;
+            }
+
+                .modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+                    background: #a8a8a8;
+                }
+
+            .modal-confirm .btn-danger {
+                background: #f15e5e;
+            }
+
+                .modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+                    background: #ee3535;
+                }
+
+        .trigger-btn {
+            display: inline-block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <span class="mx-5 px-5"> </span>
+            @Html.ActionLink("Lindani DS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-white ml-5 pl-5" })
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Notifications</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row p-0 m-0 ">
+        <nav class="col-md-2 px-0 ml-0 navbar-dark  bg-primary darken-2" style="height:735px;">
+            <div class="list-group  bg-dark ">
+                <a href="#Profile" class="list-group-item text-center bg-dark text-light">
+                    <i class="fas fa-signature mr-1"></i><b>Amo Codes</b>
+                </a>
+                <a href="#Profile" class="list-group-item list-group-item-action waves-effect text-light bg-primary">
+                    <i class="fas fa-user mr-3"></i>profile
+                </a>
+                <a href="~/VehicleModels/Index" class="list-group-item list-group-item-action waves-effect bg-primary text-light">
+                    <i class="fas fa-users mr-3"></i>Vehicle Models
+                </a>
+                <a href="~/VehicleHires/Index" class="list-group-item list-group-item-action waves-effect bg-primary text-light">
+                    <i class="fas fa-chart-line mr-3"></i>Vehicles
+                </a>
+                <a href="~/Licences/AdminView" class="list-group-item list-group-item-action waves-effect bg-primary text-light">
+                    <i class="fas fa-hand-holding-usd mr-3"></i>Licence Bookings
+                </a>
+                <a href="~/Learners/AdminView" class="list-group-item list-group-item-action waves-effect bg-primary text-light">
+                    <i class="fas fa-credit-card mr-3"></i>Learners Bookings
+                </a>
+                <a href="" class="list-group-item list-group-item-action waves-effect bg-primary text-light">
+                    <i class="fas fa-user-shield mr-3"></i>Security
+                </a>
+                <div class="list-group-item list-group-item-action text-white shadow-lg waves-effect list-group-flush rounded bg-dark text-light">
+                    <i class="fas fa-chalkboard-teacher mr-3"></i>LindaniDS Admin
+                </div>
+                <a href="#" class="list-group-item list-group-item-action waves-effect bg-primary text-light">
+                    <i class="fas fa-cogs mr-3"></i>Prifile Setting
+                </a>
+                <a href="#" class="list-group-item list-group-item-action waves-effect bg-primary text-light">
+                    <i class="fas fa-clipboard-list mr-3"></i>Roles
+                </a>
+
+
+                @*  <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+
+
+
+            </div>
+        </nav>
+        <main class="col-md-10 bg-light ml-0">
+            @RenderBody()
+            <hr />
+            <footer class="fixed-bottom text-light">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </main>
+    </div>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

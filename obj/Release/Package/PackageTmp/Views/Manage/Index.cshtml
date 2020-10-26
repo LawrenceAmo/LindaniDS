@@ -1,0 +1,58 @@
+﻿@model lindaniDS.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<h2 class="w-100 text-center mt-5">@ViewBag.Title Your Account</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<hr />
+
+<div class="row m-5">
+    <div class="col-md-6 py-5">
+
+
+        <div>
+            <h4>Change your account settings</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>Password:</dt>
+                <dd>
+                    [
+                    @if (Model.HasPassword)
+                    {
+                        @Html.ActionLink("Change your password", "ChangePassword")
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Create", "SetPassword")
+                    }
+                    ]
+                </dd>
+                <dt>External Logins:</dt>
+                <dd>
+                    @Model.Logins.Count [
+                    @Html.ActionLink("Manage", "ManageLogins") ]
+                </dd>
+
+                <dt>Two-Factor Authentication:</dt>
+                <dd>
+                    <p>
+                        There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                        for details on setting up this ASP.NET application to support two-factor authentication.
+                    </p>
+
+                </dd>
+            </dl>
+        </div>
+      
+    </div>
+    <div class="col-md-5 mt-5 ml-5 pl-5">
+
+        @Html.ActionLink("Show Learners Bookings", "myBookings", "Learners", new { id = User.Identity.Name }, new { @class = "btn btn-sm btn-primary rounded" })
+        <br /> <hr />
+        @Html.ActionLink("Show License Bookings", "myBookings", "Licences", new { id = User.Identity.Name }, new { @class = "btn btn-sm btn-primary rounded" })
+
+
+    </div>
+</div>

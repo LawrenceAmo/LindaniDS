@@ -1,0 +1,57 @@
+﻿@model lindaniDS.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="row mt-5 mx-0">
+    <div class="col-md-12 mx-0 text-center">
+        @if (ViewBag.err == null && ViewBag.tryOnce == "yes")
+        {
+            <h4 class="text-danger">The E-mail or Password are incorrect, Please try again! or  @Html.ActionLink("Register new Account ", "Register")</h4>
+        }
+    </div>
+</div>
+<hr />
+
+<div class="row text-center mt-5">
+    <div class="col-md-4 ">
+
+    </div>
+
+    <div class="col-md-4 border pl-5 text-center">
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+                                 
+
+                    <div class="md-form">
+                        <i class="fas fa-user-shield prefix"></i>
+                        <input type="text" id="LastName" name="LastName" class="form-control" required>
+                        <label for="LastName">Names</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-envelope prefix"></i>
+                        <input type="email" id="Email" name="Email" class="form-control" required>
+                        <label for="Email">E-mail address</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-key prefix"></i>
+                        <input type="password" id="Password" name="Password" class="form-control" required>
+                        <label for="Password">Password</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-key prefix"></i>
+                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" required>
+           
+                        <label for="ConfirmPassword">Confirm Password</label>
+                    </div>
+                    <input type="submit" value="Register" class="btn btn-primary form-control-sm rounded btn-sm" />
+
+                    }
+
+                </div>
+            </div>

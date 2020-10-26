@@ -1,0 +1,58 @@
+﻿@model IEnumerable<lindaniDS.Models.Learners>
+
+@{
+    ViewBag.Title = "LearnersCodes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5 h3 font-weight-bold "> Choose the learner you want to Enrol to</div>
+<hr />
+
+
+<div class="container-md my-5">
+    <div class="row row-cols-1 row-cols-md-3 ">
+        @foreach (var item in Model)
+        {
+            <div class="col mb-4 mx-3 d-flex align-items-stretch">
+
+                <div class="card shadow">
+                    <!--Card image-->
+                    <div class=" overlay pb-0 p-0">
+                        <img class="card-img-top mb-0 m-0" src="https://witbanknews.co.za/wp-content/uploads/sites/105/2018/02/driving-licence.jpg" alt="Card image cap">
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body d-flex flex-column justify-content-between pt-2 pb-1">
+
+                        <!--Title-->
+                        <h4 class="card-title  d-flex justify-content-between"><span> @Html.DisplayFor(modelItem => item.Name)</span> <span>
+                            @if (item.Code == 1)
+                            {<span> A </span>}
+
+                            @if (item.Code == 2)
+                            {<span> B </span>}
+
+                            @if (item.Code == 3)
+                            {<span> C </span>}
+
+                        </span></h4>
+                                                    <!--Text-->
+                        <p class="card-text">
+                            @Html.DisplayFor(modelItem => item.LearnerDisc)
+                        </p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <div class=" d-flex justify-content-between">
+                            <span class="my-auto h5 font-weight-bold">R @Html.DisplayFor(modelItem => item.Cost)</span>
+                            <span class="">@Html.ActionLink("Enroll", "Details", new { id = item.LearnerID }, new { @class = "btn btn-light-blue text-white btn-md" })</span>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Card -->                
+
+            </div>
+        }
+
+        </div>
+</div>

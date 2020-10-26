@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LindaniContext-Web.config Connection String" description="LindaniContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:lindanidsdbserver.database.windows.net,1433;Initial Catalog=lindaniDS_db;Persist Security Info=False;User &#xD;&#xA;ID=madibaamohelang;Password=@Dut991110;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ubuntu\\Documents\\My\ Projects\\DUT\ \.NET\\lindaniDS\\lindaniDS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LindaniContext']/@connectionString" />
+  </parameter>
+  <parameter name="LindaniDBs-Web.config Connection String" description="LindaniDBs Connection String used in web.config by the application to access the database." defaultValue="LindaniDBs_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ubuntu\\Documents\\My\ Projects\\DUT\ \.NET\\lindaniDS\\lindaniDS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LindaniDBs']/@connectionString" />
+  </parameter>
+  <parameter name="LindaniDBs_DatabasePublish-Web.config Connection String" description="LindaniDBs_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="LindaniDBs_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ubuntu\\Documents\\My\ Projects\\DUT\ \.NET\\lindaniDS\\lindaniDS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LindaniDBs_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

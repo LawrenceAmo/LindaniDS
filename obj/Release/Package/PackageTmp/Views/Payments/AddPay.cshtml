@@ -1,0 +1,120 @@
+﻿@model lindaniDS.Models.VehicleHire
+
+@{
+    ViewBag.Title = "AddPay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // var Vehicle = ViewBag.Vehicle;
+    var email = ViewBag.email;
+    var cost = ViewBag.cost;
+    var id = ViewBag.id;
+    var All = ViewBag.All;
+    var modelID = ViewBag.modelID;
+
+}
+
+<h2>AddPay</h2>
+( @id  | =>  @cost )
+{ @modelID }
+<div>
+    <h4>VehicleHire</h4>
+    @email
+    <hr />
+    => {[ @All  ]}<br />
+    => {[ @All.Email @All.modelID, @All.VehicleModel.vehicleName, @All.cost  ]}
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleModel.vehicleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleModel.vehicleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.regNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noPlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noPlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.condition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.condition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DropDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DropDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddreessID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddreessID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.vehicleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

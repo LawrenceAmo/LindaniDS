@@ -1,0 +1,42 @@
+﻿@model lindaniDS.Models.BookingPackages
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookingPackages</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.packageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.packageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availabilityDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availabilityDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.packageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

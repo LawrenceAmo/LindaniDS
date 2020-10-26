@@ -1,0 +1,55 @@
+﻿@using lindaniDS.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="row mt-5 mx-0">
+    <div class="col-md-12 mx-0 text-center">
+        @if (ViewBag.err == null && ViewBag.tryOnce == "yes")
+        {
+            <h4 class="text-danger">The E-mail or Password are incorrect, Please try again! or  @Html.ActionLink("Register new Account ", "Register")</h4>
+        }
+    </div>
+</div>
+<hr />
+
+<div class="row text-center mt-5">
+    <div class="col-md-4 ">
+
+    </div>
+
+    <div class="col-md-4 border pl-5 text-center">
+
+
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="md-form">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="email" id="Email" name="Email" class="form-control">
+                <label for="Email">E-mail address</label>
+            </div>
+
+            <div class="md-form">
+                <i class="fas fa-key prefix"></i>
+                <input type="password" id="Password" name="Password" class="form-control">
+                <label for="Password">Password</label>
+            </div>
+            <div class="md-form ml-5">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
+            <input type="submit" value="Log In" class="btn btn-primary form-control rounded btn-sm" />
+            <div class="md-form ml-5">
+                @Html.ActionLink("Register as a new user", "Register")
+            </div>
+
+        }
+
+    </div>
+</div>

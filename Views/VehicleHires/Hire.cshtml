@@ -1,0 +1,164 @@
+﻿@model IEnumerable<lindaniDS.Models.VehicleHire>
+
+@{
+    ViewBag.Title = "Hire";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row mt-5">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-5">
+        <h4>Choose your Desired Vehicle</h4>
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("Contact Us", "Contact","Home", new { area = "" }, new { @class = "btn btn-sm btn-info btn-outline-info rounded" })
+    </div>
+</div>
+<hr class="" />
+<div class="row mx-5 mt-2">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-3">
+            <!-- Card Regular -->
+            <div class="card card-cascade">
+
+                <!-- Card image -->
+                <div class="view view-cascade overlay hoverable">
+                    <img class="card-img-top hoverable" src="~/Images/@item.Photo" alt="Card image cap">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+               
+                <!-- Card content -->
+                <div class="card-body card-body-cascade text-center">
+
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>@Html.DisplayFor(modelItem => item.VehicleModel.vehicleName) @Html.DisplayFor(modelItem => item.VehicleModel.modelName)  (@Html.DisplayFor(modelItem => item.color)) </strong></h4>
+                    <!-- Subtitle -->
+                    <h6 class="font-weight-bold indigo-text py-2">
+                        R @Html.DisplayFor(modelItem => item.cost) |
+                        @*  @Html.DisplayFor(modelItem => item.availability)*@
+                        @if (item.availability == false)
+                        {
+                            @:Availbale
+                        }
+                        else
+                        {
+                            @:Not Availbale
+                        }
+
+                    </h6>
+                    <!-- Text -->
+                    <p class="card-text">
+                        For more info, or if you have any quiry <br />
+                        Please email us on: <i><b>  @Html.DisplayFor(modelItem => item.Email)</b></i>
+
+                    </p>
+
+                </div>
+
+                <!-- Card footer -->
+                <div class="card-footer text-muted text-center">
+                    @Html.ActionLink("Hire Now", "ViewCar", new { id = item.vehicleID }, new { @class = "btn btn-sm btn-primary form-control rounded" })  
+                  
+                </div>
+
+            </div>
+            <!-- Card Regular -->
+        </div>
+    }
+</div>
+
+
+
+@* ////////////////////////////////////////////////// *@
+@*
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleModel.vehicleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.regNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.noPlate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.availability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DropDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddreessID)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleModel.vehicleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.regNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.noPlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.condition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.availability)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PickDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DropDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddreessID)
+                </td>
+                <td>
+
+
+                </td>
+            </tr>
+        }
+
+    </table>*@

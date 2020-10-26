@@ -1,0 +1,64 @@
+﻿@model IEnumerable<lindaniDS.Models.VehicleModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@{ 
+    var data = ViewBag.Message;
+    var msg = ViewData["msg"];
+}
+<p>
+    <div class="row py-4">
+        <div class="col-4 h6 font-weight-bold  ">
+
+            @Html.ActionLink("Create New vehicle", "Create", new { area = ""},new { @class = "btn btn-primary rounded btn-sm" })
+        </div>
+        <div class="col-7 h4 font-weight-bold text-center ">
+            Create New vehicle
+        </div>
+    </div>
+    <hr />
+
+</p>
+<table class="table bg-white rounded">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.vehicleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vehicleMake)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vehicleBodyType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modelName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.vehicleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vehicleMake)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vehicleBodyType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modelName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.modelID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.modelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.modelID })
+        </td>
+    </tr>
+}
+
+</table>

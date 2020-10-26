@@ -1,0 +1,185 @@
+﻿@model lindaniDS.Models.Licence
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row mx-5 mb-3 mt-5">
+    <div class="col-md-4">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <div class="col-md-7 h4">
+        Book For Licence
+    </div>
+</div>
+<hr />
+
+@using (Html.BeginForm("Create", "Licences", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row mx-5 mt-5">
+        <div class="col-md-4 ml-5">
+
+            @*<div class="md-form md-outline">
+                    @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control  form-control-sm validate" })
+                        @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="md-form md-outline">
+                    @Html.LabelFor(model => model.PackageID, "PackageID", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("PackageID", null, htmlAttributes: new { @class = "form-control  form-control-sm validate" })
+                        @Html.ValidationMessageFor(model => model.PackageID, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+
+            <div class="form-group">
+
+                <textarea class="form-control rounded-0 border-0" id="exampleFormControlTextarea2" rows="1" disabled>Provide us with your details so that we can send and Update you on your Booking</textarea>
+            </div>
+
+            <div class="md-form md-outline">
+                <input type="text" id="Name" name="Name" class="form-control  form-control-sm validate" />
+                <label for="Name" data-error="wrong" data-success="right">Names</label>
+            </div>
+
+            <div class="md-form md-outline">
+                <input type="text" id="Email" name="Email" value="@ViewBag.email" class="form-control  form-control-sm validate" />
+                <label for="Email" data-error="wrong" data-success="right">Email</label>
+            </div>
+
+
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                <label for="Phone" data-error="wrong" data-success="right">Phone Number</label>
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.IDNum, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.IDNum, "", new { @class = "text-danger" })
+                <label for="IDNum" data-error="wrong" data-success="right">ID Number</label>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+
+            <div class="md-form md-outline">
+                <input type="text" name="Province" id="province" class="form-control form-control-sm validate" />
+                @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
+                <label for="province" data-error="wrong" data-success="right">Province</label>
+            </div>
+
+
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                <label for="City" data-error="wrong" data-success="right">City</label>
+            </div>
+
+            <div class="md-form md-outline">
+                <input type="text" id="Surbub" name="Surbub" class="form-control  form-control-sm validate" />
+                <label for="Surbub" data-error="wrong" data-success="right">Surbub</label>
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.Street, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+                <label for="Street" data-error="wrong" data-success="right">Street Address</label>
+            </div>
+
+            <div class="md-form md-outline">
+
+                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                <label for="ZipCode" data-error="wrong" data-success="right">Zip Code</label>
+            </div>
+
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="md-form md-outline">
+                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                <label for="Location" data-error="wrong" data-success="right">Location</label>
+            </div>
+
+            <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+                <input placeholder="Select date" type="date" name="BookingDate" id="BookingDate" class="form-control">
+                <label for="BookingDate" data-error="wrong" data-success="right">Booking Date</label>
+            </div>
+
+            <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+                <input placeholder="Select date" type="date" name="BookingDate2" id="BookingDate2" class="form-control">
+
+                <label for="BookingDate2" data-error="wrong" data-success="right">Booking Date</label>
+
+            </div>
+
+
+            @*<div class="md-form md-outline">
+
+            @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control  form-control-sm validate" } })
+            @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+            <label for="Photo" data-error="wrong" data-success="right">Photo</label>
+        </div>*@
+            <label for="upload" class="" data-error="wrong" data-success="right">Upload Learners</label>
+            <div class="md-form md-outline file-field file-upload-wrapper" id="file" onclick="file()">
+                <input type="file" name="upload" id="upload" class="form-control-file btn-floating peach-gradient mt-0 float-left" />
+                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger   form-control-sm validate" })
+                <i class="fas fa-paperclip" aria-hidden="true"></i>
+            </div>
+
+            <label for="Code" class="mdb-main-label">Choose Licence Code</label> <br />
+            <select class="browser-default custom-select" name="Code" id="Code" editable="true" searchable="Search and add here...">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="08">Code 08</option>
+                <option value="10">Code 10</option>
+                <option value="14">Code 14</option>
+            </select>
+
+
+
+
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12 text-center">
+            <input type="submit" value="Create" class="btn form btn-primary" />
+
+        </div>
+    </div>
+}
+
+<script>
+    function con() {
+        document.getElementById("file").addEventListener('click', function () {
+         //   window.confirm("hello");
+            //validation code to see State field is mandatory.  
+        });
+    }
+
+    function file() {
+        setTimeout(function () {
+            window.confirm("Your document is in right format, Click ok to procced");
+        }, 8000);
+    }
+   // setTimeout(con, 3000);
+</script>

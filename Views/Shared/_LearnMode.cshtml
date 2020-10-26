@@ -1,0 +1,135 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @* ///////////////////////////////////////////////////////// *@
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    @* ///////////////////////////////////////////////////// *@
+    <style>
+        body {
+            padding: 0px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-info scrolling-navbar">
+        <div class="container">
+
+            <!-- Brand -->
+
+            @Html.ActionLink("Lindani DS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left -->
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item ">
+                        @Html.ActionLink("License", "AllBookings", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item ">
+                        @Html.ActionLink("Learners", "LearnersCodes", "LearnersLicense", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Car Hire", "Hire", "VehicleHires", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+
+                    </li>
+                    @Html.Partial("_LoginPartial")
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="row p-0 m-0 ">
+        <nav class="col-md-2 px-0 ml-0 navbar-dark  bg-dark darken-2" style="height:735px;">
+            <div class="list-group  bg-dark ">
+                <a href="#Profile" class="list-group-item text-center bg-dark text-light">
+                    <i class="fas fa-signature mr-1"></i><b>Amo Codes</b>
+                </a>
+                <a href="#Profile" class="list-group-item list-group-item-action waves-effect text-light bg-dark">
+                    <i class="fas fa-user mr-3"></i>profile
+                </a>
+                <a href="~/VehicleModels/Index" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-users mr-3"></i>Vehicle Models
+                </a>
+                <a href="~/VehicleHires/Index" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-chart-line mr-3"></i>Vehicles
+                </a>
+                <a href="~/Licences/AdminView" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-hand-holding-usd mr-3"></i>Licence Bookings
+                </a>
+                <a href="~/Learners/AdminView" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-credit-card mr-3"></i>Learners Bookings
+                </a>
+                <a href="" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-user-shield mr-3"></i>Security
+                </a>
+                <div class="list-group-item list-group-item-action text-white shadow-lg waves-effect list-group-flush rounded bg-dark text-light">
+                    <i class="fas fa-chalkboard-teacher mr-3"></i>LindaniDS Admin
+                </div>
+                <a href="#" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-cogs mr-3"></i>Prifile Setting
+                </a>
+                <a href="#" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-clipboard-list mr-3"></i>Roles
+                </a>
+                <a href="~/Courses/Index" class="list-group-item list-group-item-action waves-effect bg-dark text-light">
+                    <i class="fas fa-clipboard-list mr-3"></i>Learners Courses
+                </a>
+
+
+            
+            </div>
+        </nav>
+        <main class="col-md-10 bg-light ml-0">
+            @RenderBody()
+            <hr />
+            <footer class="fixed-bottom text-light">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </main>
+    </div>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

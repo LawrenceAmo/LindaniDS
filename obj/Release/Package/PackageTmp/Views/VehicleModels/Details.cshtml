@@ -1,0 +1,51 @@
+﻿@model lindaniDS.Models.VehicleModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VehicleModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vehicleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vehicleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vehicleMake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vehicleMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vehicleBodyType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vehicleBodyType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.modelID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
