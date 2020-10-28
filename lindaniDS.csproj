@@ -180,6 +180,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LearnersController.cs" />
     <Compile Include="Controllers\LearnersLicenseController.cs" />
+    <Compile Include="Controllers\LessonsController.cs" />
     <Compile Include="Controllers\LicencesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
@@ -444,6 +445,13 @@
     <Content Include="Views\Payments\LearnerPay.cshtml" />
     <Content Include="Views\LearnersLicense\LearnerPortal.cshtml" />
     <Content Include="Views\Shared\_LearnMode.cshtml" />
+    <Content Include="Views\Courses\LearnerCourses.cshtml" />
+    <Content Include="Views\Shared\_LearnerPortal.cshtml" />
+    <Content Include="Views\Lessons\Create.cshtml" />
+    <Content Include="Views\Lessons\Delete.cshtml" />
+    <Content Include="Views\Lessons\Details.cshtml" />
+    <Content Include="Views\Lessons\Edit.cshtml" />
+    <Content Include="Views\Lessons\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

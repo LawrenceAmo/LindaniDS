@@ -80,6 +80,8 @@ namespace lindaniDS.Models
         public System.Data.Entity.DbSet<LindaniDrivingSchool.Models.Course> Courses { get; set; }
 
         public System.Data.Entity.DbSet<lindaniDS.Models.Enrollments> Enrollments { get; set; }
+
+        public System.Data.Entity.DbSet<LindaniDrivingSchool.Models.Lesson> Lessons { get; set; }
     }
 
 

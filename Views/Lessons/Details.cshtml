@@ -1,0 +1,67 @@
+﻿@model LindaniDrivingSchool.Models.Lesson
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LearnerPortal.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lesson</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.CourseDisc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.CourseDisc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonDisc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonDisc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MyProperty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MyProperty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lessonType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lessonType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LessonID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
