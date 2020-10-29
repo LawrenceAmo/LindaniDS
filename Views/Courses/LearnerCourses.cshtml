@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "LearnerCourses";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LearnerPortal.cshtml";
     var course = ViewBag.courses;
 }
 <style>
@@ -14,17 +14,12 @@
         left: 54px;
     }
 </style>
-
-@Html.Partial("_LearnerPortal")
 <ul class="list-group">
     @foreach (var item in course)
     {   
         <li class="list-group-item ">
-            <div class="md-v-line"></div><i class="fas fa-laptop mr-4 pr-3"></i> @item.Name
+            <div class="d-flex" id="@item.CourseID"><span> <span class="md-v-line"></span><i class="fas fa-laptop mr-4 pr-3"></i> @item.Name </span>
+            <span class="ml-auto my-0">@Html.ActionLink("start learning Now", "LearnerLessons", "Lessons", new { id = item.CourseID }, new { @class = "btn btn-light-blue text-white  my-0  btn-sm" })</span></div>
         </li>
     }
 </ul>
-
-    </div>
-    </div>
-    </div>

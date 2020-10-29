@@ -22,6 +22,13 @@ namespace lindaniDS.Controllers
             var lessons = db.Lessons.Include(l => l.Course);
             return View(await lessons.ToListAsync());
         }
+        /// ///        
+        public async Task<ActionResult> LearnerLessons(int id)
+        {
+            var myLessons = await db.Lessons.Where(a => a.CourseID == id).ToListAsync();
+            ViewBag.lessons = myLessons;
+            return View();
+        }
 
         // GET: Lessons/Details/5
         public async Task<ActionResult> Details(int? id)

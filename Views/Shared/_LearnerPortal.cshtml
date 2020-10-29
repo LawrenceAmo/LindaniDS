@@ -1,11 +1,209 @@
 ﻿
-<style>
-    .side-bar {
-        height: 80vh;
-    }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Lindani DS</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
-<div class=" container-fluid  mt-4 pt-4">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+    @{
+        Session.Timeout = 60;
+    }
+
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .view {
+            height: 100%;
+        }
+        /* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+        html,
+        body,
+        .view {
+            height: 100%;
+        }
+
+        .side-bar {
+            height: 80vh;
+        }
+
+        /* Half Page Carousel itself*/
+        .carousel {
+            height: 50%;
+        }
+
+            .carousel .carousel-inner {
+                height: 100%;
+            }
+
+                .carousel .carousel-inner .carousel-item,
+                .carousel .carousel-inner .active {
+                    height: 100%;
+                }
+        /* Navbar animation */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .top-nav-collapse {
+            background-color: #1C2331;
+        }
+        /* Footer color for sake of consistency with Navbar */
+        .page-footer {
+            background-color: #1C2331;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-info scrolling-navbar">
+        <div class="container">
+
+            <!-- Brand -->
+
+            @Html.ActionLink("Lindani DS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left -->
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item ">
+                        @Html.ActionLink("License", "AllBookings", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item ">
+                        @Html.ActionLink("Learners", "LearnersCodes", "LearnersLicense", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Car Hire", "Hire", "VehicleHires", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+
+                    </li>
+                    @Html.Partial("_LoginPartial")
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+    <!-- Navbar -->
+
+    <div class="container-fluid m-0 p-0 body-content">
+
+
+
+        <div class=" container-fluid  mt-4 pt-4">
+
+            <div class="row mx-0">
+                <div class="col-md-2 border-right h-100 ">
+                    <div class="shadow p-2   rounded d-flex flex-column  side-bar">
+
+                        <a href="#" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-user mr-2"></i> Profile</a>
+                        <a href="#" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-user-plus mr-2"></i> Home</a>
+                        <a href="#" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-user mr-2"></i> My Courses</a>
+                        <a href="~/LearnersLicense/LearnerPortal" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-laptop mr-2"></i> My Courses</a>
+
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <p class="h5 p-1 ml-4 font-weight-bold">Studen Portal</p> <br />
+                    @RenderBody()
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+                <!-- Footer -->
+                <footer class="page-footer d-none position-fixed w-100 sticky-bottom font-small stylish-color-dark pt-4">
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">
+                        &copy; @DateTime.Now.Year  Copyright:
+                        <a href="https://effectivewing.com/"> LindaniDS.com</a>
+                    </div>
+                    <!-- Copyright -->
+
+                </footer>
+
+
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @RenderSection("scripts", required: false)
+                <!-- JQuery -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <!-- Bootstrap tooltips -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+                <!-- Bootstrap core JavaScript -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+                <!-- MDB core JavaScript -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+
+                <script type="text/javascript">
+                    // Animations initialization
+                    new WOW().init();
+                    ////////////////
+                    document.getElementById('status').innerHTML = "Sending...";
+                    formData = {
+                        'name': $('input[name=name]').val(),
+                        'email': $('input[name=email]').val(),
+                        'subject': $('input[name=subject]').val(),
+                        'message': $('textarea[name=message]').val()
+                    };
+
+
+                    $.ajax({
+                        url: "pages/mail.php",
+                        type: "POST",
+                        data: formData,
+                        success: function (data, textStatus, jqXHR) {
+
+                            $('#status').text(data.message);
+                            if (data.code) //If mail was sent successfully, reset the form.
+                                $('#contact-form').closest('form').find("input[type=text], textarea").val("");
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            $('#status').text(jqXHR);
+                        }
+                    });
+                </script>
+</body>
+</html>
+
+
+
+@*<div class=" container-fluid  mt-4 pt-4">
 
     <div class="row mx-0">
         <div class="col-md-2 border-right h-100 ">
@@ -17,7 +215,7 @@
                 <a href="~/LearnersLicense/LearnerPortal" class=" border-bottom my-3 pl-3 text-dark font-weight-bold"><i class="fas fa-laptop mr-2"></i> My Courses</a>
 
             </div>
-            </div>
-            
-            <div class="col-md-9">
-                <p class="h5 p-1 ml-4 font-weight-bold">Studen Portal</p> <br />
+        </div>
+
+        <div class="col-md-9">
+            <p class="h5 p-1 ml-4 font-weight-bold">Studen Portal</p> <br />*@

@@ -1,0 +1,117 @@
+﻿@model IEnumerable<LindaniDrivingSchool.Models.Lesson>
+
+@{
+    ViewBag.Title = "LearnerLessons";
+    Layout = "~/Views/Shared/_LearnMode.cshtml";
+    var lesson = ViewBag.lessons;
+    var i = 1;
+}
+<style>
+    .vid-holder {
+        width: 100%;
+       
+        max-height: 90vh;
+    }
+ </style>
+   
+<div class="row p-0 mx-0">
+    <div class="col-md-2 ml-0 pl-0 border-right h-100 ">
+        <div class="shadow ml-0 rounded d-flex flex-column  side-bar pt-0 ">
+
+            <a  onclick="window.history.back();" class=" border-bottom mt-0 p-3 text-dark font-weight-bold bg-info font-weight-bold"><i class="fas fa-arrow-left mr-2"></i> Back to Coourse</a>
+
+            <div class=" border rounded p-2 mt-3" >
+                @foreach (var item in lesson)
+                {
+                    <a href="~/LearnersLicense/LearnerPortal" class=" border-bottom my-3 pl-2 text-dark font-weight-bold"><i class="fas fa-one mr-2"> @i<span>.</span> </i>@item.Name</a>
+                   { i++;  }
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-10 border rounded p-3 bg-white" >
+       
+            <video  class="border rounded p-3 w-100 vid-holder" id="vid" controls >
+                <source src="~/Uploads/Lessons/Ali Gatie - Moonlight (Official Music Video).mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+            </video> <br />
+        <div class="border py-1 rounded d-flex">
+            <div class="mx-auto">
+                <button class="btn btn-sm btn-info rounded btn-outline-info" onclick="play()" id="playbtn">Play</button>
+                <button class="btn btn-sm btn-info rounded btn-outline-info" onclick="mute();" id="mutebtn">mute</button>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+<script>
+    var vid = document.getElementById("vid");
+
+    function play() {
+
+        var play = vid.paused;
+        var playbtn = document.getElementById("playbtn");
+
+        if (play == true) {
+            vid.play();
+            playbtn.innerHTML = "pouse";
+        }
+
+        if (play == false) {
+            vid.pause();
+            playbtn.innerHTML = "play";
+        }
+       // alert(vid.paused);
+    }
+    
+
+    function mute() {
+        var mutebtn = document.getElementById("mutebtn");
+
+        var mute = vid.muted;
+        if (mute == false) {
+            vid.muted = true;
+            mutebtn.innerHTML = "unmute";
+        }
+
+        if (mute == true) {
+            vid.muted = false;
+            mutebtn.innerHTML = "mute";
+        }
+    } 
+</script>
+
+
+
+
+@*@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseDisc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LessonDisc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MyProperty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lessonType)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.LessonID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.LessonID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.LessonID })
+            </td>
+        </tr>
+    }*@
