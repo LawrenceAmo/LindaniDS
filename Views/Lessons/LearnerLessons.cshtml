@@ -8,8 +8,7 @@
 }
 <style>
     .vid-holder {
-        width: 100%;
-       
+        width: 100%;       
         max-height: 90vh;
     }
  </style>
@@ -18,15 +17,17 @@
     <div class="col-md-2 ml-0 pl-0 border-right h-100 ">
         <div class="shadow ml-0 rounded d-flex flex-column  side-bar pt-0 ">
 
-            <a  onclick="window.history.back();" class=" border-bottom mt-0 p-3 text-dark font-weight-bold bg-info font-weight-bold"><i class="fas fa-arrow-left mr-2"></i> Back to Coourse</a>
-
-            <div class=" border rounded p-2 mt-3" >
+            <a  onclick="window.history.back();" class=" border-bottom mt-0 p-3  text-dark font-weight-bold bg-info font-weight-bold"><i class="fas fa-arrow-left mr-2"></i> Back to Coourse</a>
+            <div class=" border rounded p-2 mt-3 pt-3" >
                 @foreach (var item in lesson)
                 {
-                    <a href="~/LearnersLicense/LearnerPortal" class=" border-bottom my-3 pl-2 text-dark font-weight-bold"><i class="fas fa-one mr-2"> @i<span>.</span> </i>@item.Name</a>
+                    <div class="border-bottom">
+                <input type="hidden" value="@item.Vid" id="id_@i" />
+                        <a   onclick="btn(@i);"  class="  my-3 pl-2 py-2 text-dark font-weight-bold"><i class="fas fa-one mr-2"> @i<span>.</span> </i>@item.Name</a>    
+                    </div> <br />
                    { i++;  }
-
                 }
+         
             </div>
         </div>
     </div>
@@ -34,22 +35,38 @@
     <div class="col-md-10 border rounded p-3 bg-white" >
        
             <video  class="border rounded p-3 w-100 vid-holder" id="vid" controls >
-                <source src="~/Uploads/Lessons/Ali Gatie - Moonlight (Official Music Video).mp4" type="video/mp4">
+                <source src="" id="src" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
             </video> <br />
-        <div class="border py-1 rounded d-flex">
-            <div class="mx-auto">
-                <button class="btn btn-sm btn-info rounded btn-outline-info" onclick="play()" id="playbtn">Play</button>
-                <button class="btn btn-sm btn-info rounded btn-outline-info" onclick="mute();" id="mutebtn">mute</button>
+            <div class="border py-1 rounded d-flex">
+                <div class="mx-auto">
+                    <button class="btn btn-sm btn-info rounded btn-outline-info" onclick="play()" id="playbtn">Play</button>
+                    <button class="btn btn-sm btn-info rounded btn-outline-info" onclick="mute();" id="mutebtn">mute</button>
+                </div>
             </div>
-        </div>
        
     </div>
 </div>
 
 
 <script>
+    // ~/Uploads/Lessons/
+    // Ali Gatie - Moonlight (Official Music Video).mp4
     var vid = document.getElementById("vid");
+    function btn(i) {
+        var vid = document.getElementById("vid");
+        event.preventDefault();
+        var nm = "Ali Gatie - Moonlight (Official Music Video).mp4";
+        var url = document.getElementById("id_" + i).getAttribute("value");
+        var src = document.getElementById("src");
+        vid.pause();
+        src.setAttribute("src", "~/Uploads/Lessons/" + nm);
+        vid.load();
+        vid.play();
+
+        console.log("~/Uploads/Lessons/"+nm);
+    }
+
 
     function play() {
 
@@ -60,15 +77,12 @@
             vid.play();
             playbtn.innerHTML = "pouse";
         }
-
         if (play == false) {
             vid.pause();
             playbtn.innerHTML = "play";
         }
-       // alert(vid.paused);
     }
     
-
     function mute() {
         var mutebtn = document.getElementById("mutebtn");
 
@@ -77,7 +91,6 @@
             vid.muted = true;
             mutebtn.innerHTML = "unmute";
         }
-
         if (mute == true) {
             vid.muted = false;
             mutebtn.innerHTML = "mute";

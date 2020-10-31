@@ -4,63 +4,45 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div  class="container">
-<h2 class="mt-5 pt-5">Details</h2>
+<div class="row mx-0">
+    <div class="col-12 p-5">
+        <div class="card">
 
-<div>
-    <h4>Learners</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <!-- Card image -->
+            <img class="card-img-top" src="https://witbanknews.co.za/wp-content/uploads/sites/105/2018/02/driving-licence.jpg" alt="Card image cap" style="height:60vh;">
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <!-- Card content -->
+            <div class="card-body">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LearnerDisc)
-        </dt>
+                <!-- Title -->
+                <h4 class="card-title d-flex justify-content-between font-weight-bold"><a>@Html.DisplayFor(model => model.Name)</a><span>@Html.DisplayFor(model => model.Cost)</span></h4>
+                <!-- Text -->
+                <p class="card-text">
+                    @Html.DisplayFor(model => model.LearnerDisc)
+                </p>
+                <!-- Button -->
 
-        <dd>
-            @Html.DisplayFor(model => model.LearnerDisc)
-        </dd>
+                <div class=" d-flex justify-content-between">
+                    <span class="my-auto">
+                        <button onclick="window.history.back();" class="btn btn-sm btn-outline-info rounded"><i class="fas fa-arrow-left mr-2"></i> Back to learners</button>
+                    </span>
+                    <span class=" my-auto"> Code 
+                        @if (Model.Code == 1)
+                        {<span> A </span>}
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
+                        @if (Model.Code == 2)
+                        {<span> B </span>}
 
-        <dd>
-            @Html.DisplayFor(model => model.Picture)
-        </dd>
+                        @if (Model.Code == 3)
+                        {<span> C </span>}
+                    </span>
+                    <span>@Html.ActionLink("Enroll Now", "LearnerPay", "Payments", new { id = Model.LearnerID }, new { @class = "btn btn-sm btn-primary rounded" }) </span>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
-    </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Enroll Now", "LearnerPay", "Payments", new { id = Model.LearnerID }, new { @class = "btn btn-sm btn-primary rounded" }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-
-
-    <div class="p-5 m-5 border text-center text-danger h5">
-        @Model.LearnerID
-    </div>
-    </div>
 
 
